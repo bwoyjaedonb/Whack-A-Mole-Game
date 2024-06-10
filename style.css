@@ -1,0 +1,77 @@
+/*Sorry for the bunch of comments but I keep forgetting what each thing do */
+/*Global Styles that resets margin and padding to 0 ensure box size to be consistent*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' sans-serif;
+
+}
+/*Styling the body*/
+body{
+    min-height: 100vh;
+    background-color: #d3d3d3;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 h2{
+    margin-bottom: 15px;
+}
+/*Sets a fix size to the board,3by3 layout and add gap*/
+
+.board{
+    width: 1000px;
+    height: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 50px;
+}
+/*Styling the holes for the moles*/
+
+.board .hole{
+    background-color: #3876BF ;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+}
+/*position the image in the cneter of the holes and animate it a bit*/
+
+.hole img{
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: animate .3s linear forwards;
+}
+
+
+@keyframes animate{
+    0%{
+        bottom: -100%;
+
+    }
+    100%{
+        bottom: 0;
+    }
+}
+/*Adds the hammer image to the cursor*/
+.cursor{
+    width: 100px;
+    height: 100px;
+    background-image: url("Hammer.png");
+    background-size: 100%;
+    position: absolute;
+    transform: translate(-15%, -15%);
+    pointer-events: none;
+    
+}
+/*Adds a rotation to the cursor when it is in the active state*/
+.cursor.active{
+    transform: translate(-15%, -15%) rotate(-30deg);
+}
